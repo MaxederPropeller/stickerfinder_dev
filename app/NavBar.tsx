@@ -4,6 +4,12 @@ import Link from "next/link";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import SettingsIcon from "@mui/icons-material/Settings";
+import InfoIcon from "@mui/icons-material/Info";
+
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -69,32 +75,64 @@ const NavBar: React.FC = () => {
           transition: "all 0.3s",
         }}
       >
-        <div>
-          <div>
-            <img src={user.avatar} alt="avatar" />
-            <div>
+        <div
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+        >
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                flex: "1",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+              }}
+            >
+              <img
+                src={user.avatar}
+                alt="avatar"
+                style={{ borderRadius: "50%", width: "100px", height: "100px" }}
+              />
+            </div>
+            <div style={{ flex: "1" }}>
               <p>{user.name}</p>
               <p>{user.role}</p>
             </div>
           </div>
           <hr />
           <ul>
-            <li>
+            <li style={{ display: "flex", alignItems: "center" }}>
+              <AccountCircleIcon />
+              {/* Ersetzen Sie diesen Teil mit dem tatsächlichen Icon-Import */}
               <Link href="/profile">Profile</Link>
             </li>
-            <li>
+            <li style={{ display: "flex", alignItems: "center" }}>
+              <TravelExploreIcon />
+              {/* Ersetzen Sie diesen Teil mit dem tatsächlichen Icon-Import */}
               <Link href="/discovery">Discovery</Link>
             </li>
-            <li>
+            <li style={{ display: "flex", alignItems: "center" }}>
+              <FavoriteIcon />
+              {/* Ersetzen Sie diesen Teil mit dem tatsächlichen Icon-Import */}
               <Link href="/favorites">Favorites</Link>
             </li>
           </ul>
+          <div style={{ flex: "1" }} />
           <hr />
-          <ul>
-            <li>
+          <ul
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+            }}
+          >
+            <li style={{ display: "flex", alignItems: "center" }}>
+              <InfoIcon />
+
               <Link href="/about">About</Link>
             </li>
-            <li>
+            <li style={{ display: "flex", alignItems: "center" }}>
+              <SettingsIcon />
+
               <Link href="/settings">Settings</Link>
             </li>
           </ul>
