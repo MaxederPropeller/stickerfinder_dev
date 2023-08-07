@@ -1,9 +1,10 @@
-"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+
+import { UserAuth } from "./context/AuthContext";
+
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
-
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -13,21 +14,24 @@ import InfoIcon from "@mui/icons-material/Info";
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Mock user data
-  const user = {
-    name: "John Doe",
-    role: "Administrator",
-    avatar: "../public/next.svg",
+  const { user, googleSignIn, logOut } = UserAuth();
+
+  const handleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
@@ -70,7 +74,8 @@ const NavBar: React.FC = () => {
           right: isOpen ? 0 : "-33.3333%",
           height: "100%",
           width: "33.3333%",
-          backgroundColor: "white",
+          backgroundColor: "#fcfcfc",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
           color: "black",
           transition: "all 0.3s",
         }}
@@ -78,46 +83,63 @@ const NavBar: React.FC = () => {
         <div
           style={{ display: "flex", flexDirection: "column", height: "100%" }}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <div
               style={{
                 flex: "1",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "flex-end",
+                justifyContent: "space-around",
+                alignContent: "center",
+                margin: " 10px 0",
               }}
             >
               <img
-                src={user.avatar}
-                alt="avatar"
-                style={{ borderRadius: "50%", width: "100px", height: "100px" }}
+                src={user}
+                alt="User Avatar"
+                style={{
+                  borderRadius: "50%",
+                  width: "100px",
+                  height: "100px",
+                  backgroundColor: "grey",
+                }}
               />
             </div>
             <div style={{ flex: "1" }}>
-              <p>{user.name}</p>
-              <p>{user.role}</p>
+              <p className="UserNameMenu">{user}</p>
+              <p className="RoleNameMenu">{user}</p>
             </div>
           </div>
-          <hr />
+          <hr className="SeperatorLine" />
           <ul>
             <li style={{ display: "flex", alignItems: "center" }}>
               <AccountCircleIcon />
-              {/* Ersetzen Sie diesen Teil mit dem tatsächlichen Icon-Import */}
-              <Link href="/profile">Profile</Link>
+
+              <Link className="ClassLink2" href="/profile">
+                Profile
+              </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>
               <TravelExploreIcon />
-              {/* Ersetzen Sie diesen Teil mit dem tatsächlichen Icon-Import */}
-              <Link href="/discovery">Discovery</Link>
+
+              <Link className="ClassLink2" href="/discovery">
+                Discovery
+              </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>
               <FavoriteIcon />
-              {/* Ersetzen Sie diesen Teil mit dem tatsächlichen Icon-Import */}
-              <Link href="/favorites">Favorites</Link>
+              <Link className="ClassLink2" href="/favorites">
+                Favorites
+              </Link>
             </li>
           </ul>
           <div style={{ flex: "1" }} />
-          <hr />
+          <hr className="SeperatorLine" />
           <ul
             style={{
               display: "flex",
@@ -128,12 +150,16 @@ const NavBar: React.FC = () => {
             <li style={{ display: "flex", alignItems: "center" }}>
               <InfoIcon />
 
-              <Link href="/about">About</Link>
+              <Link className="ClassLink2" href="/about">
+                About
+              </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>
               <SettingsIcon />
 
-              <Link href="/settings">Settings</Link>
+              <Link className="ClassLink2" href="/settings">
+                Settings
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,0 +1,101 @@
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+.header {
+  position: absolute;
+  background-color: #3c5be9;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: white;
+  font-size: 24px;
+  position: relative;
+  top: -80px;
+}
+
+.body {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpBox {
+  /* Die meisten Eigenschaften sind mit .loginBox im LoginScreen identisch */
+  background-color: white;
+  border-top-left-radius: 65px;
+  padding: 20px;
+  width: 100vw;
+  position: relative;
+  top: -65px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.signUpTitle {
+  margin-bottom: 10px;
+}
+
+.input {
+  /* Identisch mit .input im LoginScreen */
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #3c5be9;
+  color: #fcfcfc;
+}
+
+.agbLabel {
+  display: flex;
+  align-items: center;
+}
+
+.otherSignUp {
+  /* Identisch mit .otherLogin im LoginScreen */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.placeholder {
+  /* Identisch mit .placeholder im LoginScreen */
+  width: 40px;
+  height: 40px;
+  background-color: #eee;
+  margin: 10px;
+}
+
+.submitButton {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #3c5be9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login {
+  text-align: center;
+}
+
+.login a {
+  color: blue;
+  text-decoration: none;
+}

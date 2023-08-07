@@ -13,6 +13,8 @@
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
 
+    --text: 0 0% 100%;
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
@@ -165,4 +167,28 @@ button.text-black {
   text-decoration: none;
   color: var(--secondary-foreground);
   font-weight: 500;
+}
+
+.ClassLink2 {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+  font-size: larger;
+  margin: 5px;
+}
+
+.UserNameMenu {
+  font-weight: 800;
+  font-size: larger;
+  margin: 5px;
+}
+
+.RoleNameMenu {
+  font-weight: 400;
+  font-size: large;
+  margin: 5px;
+}
+.SeperatorLine {
+  border-bottom: 1px solid var(--secondary-foreground);
+  margin: 15px;
 }
