@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* styles/global.css (oder ähnlich) */
+@import "~leaflet/dist/leaflet.css";
 
 /* Header-Font: Cherry Bomb One; */
 @import url("https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Oswald:wght@500&family=Roboto:wght@100&display=swap");
@@ -8,6 +10,11 @@
 /* Text-Font: Quicksand; */
 @import url("https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Oswald:wght@500&family=Quicksand&family=Roboto:wght@100&display=swap");
 
+.html {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -27,14 +34,18 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    --primary: #3c5be9;
-    --primary-foreground: #7b55d4;
+    --primary: rgba(60, 91, 233, 0.5);
+    --primary-foreground: rgba(123, 85, 212, 0.5);
+    --primary-menu: rgba(0, 0, 0, 1);
 
-    --secondary: #7422ac;
-    --secondary-foreground: #f8f8f8;
+    --secondary: rgba(116, 34, 172, 0.5);
+    --secondary-foreground: rgba(248, 248, 248, 0.5);
 
-    --accent: #4cc9f0;
-    --accent-foreground: #b881d8;
+    --text-hun-white: rgba(252, 252, 252, 1);
+    --text-hun-black: rgba(0, 0, 0, 1);
+
+    --accent: rgba(76, 201, 240, 0.5);
+    --accent-foreground: rgba(184, 129, 216, 0.5);
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
@@ -82,14 +93,18 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
 
-    --primary: #3a0ca3;
-    --primary-foreground: #4361ee;
+    --primary: rgba(58, 12, 163, 0.5);
+    --primary-foreground: rgba(67, 97, 238, 0.5);
+    --primary-menu: rgba(67, 97, 238, 1);
 
-    --secondary: #f0a2c5;
-    --secondary-foreground: #7209b7;
+    --text-hun-white: rgba(0, 0, 0, 1);
+    --text-hun-black: rgba(252, 252, 252, 1);
 
-    --accent: #4cc9f0;
-    --accent-foreground: #4cc9f0;
+    --secondary: rgba(240, 162, 197, 0.5);
+    --secondary-foreground: rgba(114, 9, 183, 0.5);
+
+    --accent: rgba(76, 201, 240, 0.5);
+    --accent-foreground: rgba(76, 201, 240, 0.5);
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
@@ -105,61 +120,150 @@
   }
 }
 
-.navbar {
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.DynamicMap {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Beispielhöhe */
+  width: 100vw;
+  z-index: 1; /* Damit die Karte hinter der Navbar liegt */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.BottomControll {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0.5rem;
+  background-color: transparent;
+  width: 80%; /* Volle Breite */
+  display: flex; /* Flexbox zur Ausrichtung der Buttons */
+  justify-content: space-between; /* Verteilt die Buttons auf beiden Seiten */
+}
+
+.BottomControllLeft,
+.BottomControllRight {
+  margin: 5px; /* Abstand am Rand */
+}
+
+button {
   background: linear-gradient(
     to right,
     var(--primary),
     var(--accent-foreground) 70%,
     var(--secondary)
+  ); /* Hintergrund wie in der Navbar */
+  color: var(--secondary-foreground); /* Textfarbe */
+  padding: 10px 20px; /* Polsterung um den Text */
+  margin-bottom: 2rem;
+  border: none; /* Kein Rand */
+  border-radius: var(--radius); /* Abgerundete Ecken */
+  font-size: 16px; /* Schriftgröße */
+  cursor: pointer; /* Cursor wird zu einem Zeiger, wenn er über dem Button ist */
+  transition: 0.3s; /* Glatter Übergang für Hover-Effekte */
+  font-family: "Cherry Bomb One", cursive; /* Schriftart */
+  opacity: 0.75; /* Transparenz wie in der Navbar */
+}
+
+button:hover {
+  background: linear-gradient(
+    to right,
+    var(--secondary),
+    var(--accent-foreground) 70%,
+    var(--primary)
+  ); /* Leicht andere Farbe beim Hovern */
+}
+
+.navbar {
+  background: linear-gradient(
+    to right,
+    var(--primary-foreground),
+    var(--accent-foreground) 70%,
+    var(--secondary)
   );
-  opacity: 0.75;
+
   border-radius: var(--radius);
   padding: 15px;
-  width: 90%;
+  width: 80%;
   margin: 20px auto;
   height: 50px;
   display: flex;
+  position: absolute;
+  top: 0;
+  z-index: 100;
   align-items: center;
   justify-content: space-between;
+  justify-self: center;
   color: var(--secondary-foreground);
   font-weight: 500;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.navbar-flyout {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.Logo {
+  color: var(--text-hun-white);
+}
+
+.mobilNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--primary-foreground);
+}
+
 .Searchbar {
   position: relative;
-  width: 66%; /* Beispielbreite, kann je nach Bedarf angepasst werden */
-  cursor: none; /* Cursor-Stil */
+  width: 66%;
+  cursor: none;
+  margin-left: 5px;
 }
 
 .Searchbar input[type="text"] {
-  background: rgba(255, 255, 255, 0.5); /* Halbtransparentes Weiß */
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-hun-black);
 
-  color: var(--secondary-foreground);
   font-weight: 500;
   font-size: 1.2rem;
   width: 100%;
   height: 100%;
   border-radius: var(--radius);
-  border: none; /* Kein Rand */
-  padding-right: 40px; /* Platz für den Button im Textfeld */
-  cursor: text; /* Cursor-Stil */
-}
-
-.Searchbar button {
-  position: absolute; /* Absolute Positionierung innerhalb des .Searchbar-Containers */
-  right: -20px;
-  top: 0;
-  background: none; /* Transparenter Hintergrund */
   border: none;
-  cursor: none; /* Cursor-Stil */
+  padding: 0.5rem 1rem;
+  cursor: text;
+  transition: 0.3s;
+  outline: none;
 }
 
 /* Menüknopf-Stil */
-button.text-black {
+
+.menuButton {
   background: transparent;
-  color: var(--secondary-foreground);
+  color: var(--primary-menu);
   border: none;
+  font-size: 1.5rem; /* Größere Ikone */
+  cursor: pointer; /* Cursor-Stil */
+  width: fit-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Stil für den Link im Navigationsmenü */
@@ -191,4 +295,65 @@ button.text-black {
 .SeperatorLine {
   border-bottom: 1px solid var(--secondary-foreground);
   margin: 15px;
+}
+
+@media screen and (max-width: 760px) {
+  .navbar {
+    background: linear-gradient(
+      to right,
+      var(--primary-foreground),
+      var(--accent-foreground) 70%,
+      var(--secondary)
+    );
+
+    border-radius: var(--radius);
+    padding: 15px;
+    width: 80%;
+    margin: 20px auto;
+    height: 50px;
+    display: flex;
+    position: absolute;
+    top: 0;
+
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: center;
+    color: var(--secondary-foreground);
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobilNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navbar h1 {
+    display: none; /* Verbirgt h1 */
+  }
+  .Searchbar {
+    width: 70%; /* Suchleiste nimmt fast die ganze Breite ein */
+  }
+  /* Suchleisten-Stil */
+  .Searchbar input[type="text"] {
+    /* ... Ihre vorhandenen Stile ... */
+    padding-right: 40px; /* Raum für die Lupe */
+    padding-left: 10px; /* Ein bisschen Abstand auf der linken Seite */
+  }
+
+  /* Menübutton-Stil */
+  .menuButton {
+    background: transparent;
+    color: var(--primary-menu);
+    border: none;
+    font-size: 1.5rem; /* Größere Ikone */
+    cursor: pointer; /* Cursor-Stil */
+    width: fit-content;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }

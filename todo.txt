@@ -1,0 +1,56 @@
+Stickerfinder 2.0 
+https://www.figma.com/file/ndW1cVcJ9twL0SmT3PNTzl/Untitled?type=design&node-id=0-1&mode=design&t=HiGm5G7MhkMMF7SC-0
+
+Die Websitre Stickerfinder.ch soll komplett neu gebaut werden. 
+Dafür soll in dieser Version SSR Möglich sein, danmit die Bilder vom 
+Google Crawler ausgelesen werden kann. 
+
+Dazu wird verwendet: 
+- Next JS 13
+- tailwind css
+- Shadn CN Components 
+- Firebase Auth
+- Firebase firestore    
+- Firebase Storage 
+- Axios (Data Fetch)
+- Leafleat oder Maps API 
+
+Cloud Functions für
+- Bilder nd DB remove 
+- PW reset
+- Upload filter (Content Policy)
+- Counter refresh. 
+
+
+
+Dafür muss nun folgendes erledigt werden: 
+Alle Components müssen erstellt werden und richtig durch den router platziert werden. 
+danach muss ein Login und Sign Up context hinterlegt werden. 
+danach muss die Karte eingefügt werden 
+
+danach muss ein user profil eingerichtet werden 
+alle Daten müssen geschickt und empfangen werden
+
+danach muss die Logik für den marker anzeige loaf hinerlegt werden 
+danahc muss die logik angepasst werden damit wir daten adden können 
+
+danach ginbt es einige verknüpfungen und Uses cases, welche durch gespielt werden müssen
+
+danach schauen wir weiter: 
+
+
+AKKTUELLES TODO: 
+
+Ich habe eine page für login und sign up erstellt, diese muss nun noch richtig geroutet werden, 
+damit sie den Auth context weitergbit und nur user relevante daten anzeigt. 
+Zudem wird über den Context die ownership und der User selbst deklariert. 
+
+Ich habe Firebase alles initalisiert und schreibe mirt nun helper Function 
+welche einzelen immer wieder kehrende Aufgaben in der Db übernimmt, wie getcollection 
+und addcollcetion 
+getDoc und add Doc. 
+
+Ich muss noch eine Saubere Logik hinterlegen, wann was wie geädet wird und diese Funktionen 
+gerne gesammelt führen und einzeln in den nötigen codeabschnitt einfügen. 
+
+

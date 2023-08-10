@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./SignUpScreen.module.css";
-import { useAuth } from "../../context/AuthContext";
 
 interface ProfileProps {
   params: { slug: string };
@@ -16,22 +15,6 @@ export default function SignUp(props: ProfileProps) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
-  const { signUp } = useAuth(); // Hole die signUp-Funktion aus dem Authentifizierungskontext
-
-  const handleSignUp = async () => {
-    if (password !== confirmPassword) {
-      // Du kannst hier eine Benachrichtigung oder einen Fehler anzeigen
-      return;
-    }
-
-    if (!agreedToTerms) {
-      // Du kannst hier eine Benachrichtigung oder einen Fehler anzeigen
-      return;
-    }
-
-    await signUp(email, password, username);
-    // Weiterleiten oder Benachrichtigung nach erfolgreicher Registrierung
-  };
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -76,9 +59,7 @@ export default function SignUp(props: ProfileProps) {
             />
             Ich stimme den AGB zu
           </label>
-          <button className={styles.submitButton} onClick={handleSignUp}>
-            Bestätigen
-          </button>
+          <button className={styles.submitButton}>Bestätigen</button>
           <p className={styles.login}>
             Haben Sie bereits einen Account? <Link href="/signin">Login</Link>
           </p>
