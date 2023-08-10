@@ -36,7 +36,7 @@
 
     --primary: rgba(60, 91, 233, 0.75);
     --primary-foreground: rgba(123, 85, 212, 0.55);
-    --primary-menu: rgba(0, 0, 0, 1);
+    --primary-menu: #ffffff;
 
     --secondary: rgba(116, 34, 172, 0.75);
     --secondary-foreground: rgba(248, 248, 248, 0.75);
@@ -231,7 +231,7 @@ button:hover {
 
 .Searchbar {
   position: relative;
-  width: 66%;
+  width: 90%;
   cursor: none;
   margin-left: 5px;
 }
@@ -335,7 +335,7 @@ button:hover {
     display: none; /* Verbirgt h1 */
   }
   .Searchbar {
-    width: 70%; /* Suchleiste nimmt fast die ganze Breite ein */
+    width: 90%; /* Suchleiste nimmt fast die ganze Breite ein */
   }
   /* Suchleisten-Stil */
   .Searchbar input[type="text"] {
