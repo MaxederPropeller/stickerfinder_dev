@@ -34,18 +34,18 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    --primary: rgba(60, 91, 233, 0.5);
-    --primary-foreground: rgba(123, 85, 212, 0.5);
+    --primary: rgba(60, 91, 233, 0.75);
+    --primary-foreground: rgba(123, 85, 212, 0.55);
     --primary-menu: rgba(0, 0, 0, 1);
 
-    --secondary: rgba(116, 34, 172, 0.5);
-    --secondary-foreground: rgba(248, 248, 248, 0.5);
+    --secondary: rgba(116, 34, 172, 0.75);
+    --secondary-foreground: rgba(248, 248, 248, 0.75);
 
     --text-hun-white: rgba(252, 252, 252, 1);
     --text-hun-black: rgba(0, 0, 0, 1);
 
-    --accent: rgba(76, 201, 240, 0.5);
-    --accent-foreground: rgba(184, 129, 216, 0.5);
+    --accent: rgba(76, 201, 240, 0.75);
+    --accent-foreground: rgba(184, 129, 216, 0.75);
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
