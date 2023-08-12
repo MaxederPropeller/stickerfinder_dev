@@ -1,0 +1,67 @@
+.mapContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.popupSlider {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.popup {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.popupItem {
+  flex: 0 0 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.popupTitle,
+.popupDescription,
+.popupAuthor {
+  margin: 10px 0;
+}
+
+.popupImage {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.goToButton,
+.favButton {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+}
+
+.prevButton {
+  left: 10px;
+}
+.nextButton {
+  right: 10px;
+}

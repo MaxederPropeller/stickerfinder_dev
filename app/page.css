@@ -1,0 +1,50 @@
+.DynamicMap {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.BottomControll {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AddButton {
+  background: linear-gradient(
+    to right,
+    var(--primary),
+    var(--accent-foreground) 70%,
+    var(--secondary)
+  );
+  color: var(--secondary-foreground);
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Cherry Bomb One", cursive;
+  opacity: 1;
+}
+
+.AddButton:hover {
+  background: linear-gradient(
+    to right,
+    var(--secondary),
+    var(--accent-foreground) 70%,
+    var(--primary)
+  );
+}

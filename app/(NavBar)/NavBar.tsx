@@ -2,9 +2,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
-import { Separator } from "@/components/ui/separator";
+import "./navBar.css";
 
-import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -20,7 +19,7 @@ const NavBar: React.FC = () => {
   const user = {
     name: "John Doe",
     role: "Administrator",
-    avatar: "../public/next.svg",
+    avatar: "https://img.freepik.com/freie-ikonen/benutzer_318-159711.jpg",
   };
 
   const menuRef = useRef(null);
@@ -29,7 +28,7 @@ const NavBar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: any) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsOpen(false);
     }
@@ -75,6 +74,7 @@ const NavBar: React.FC = () => {
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
           color: "black",
           transition: "all 0.3s",
+          padding: "20px",
         }}
       >
         <div
@@ -124,8 +124,8 @@ const NavBar: React.FC = () => {
             <li style={{ display: "flex", alignItems: "center" }}>
               <TravelExploreIcon />
 
-              <Link className="ClassLink2" href="/discovery">
-                Discovery
+              <Link className="ClassLink2" href="/">
+                Home
               </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>

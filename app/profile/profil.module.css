@@ -1,0 +1,128 @@
+.profil {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: grid;
+  width: 90%;
+  z-index: 2;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  background-color: var(--secondary-foreground);
+
+  gap: 10px;
+  padding: 20px;
+  position: absolute;
+  top: 30px;
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  align-content: space-around;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  position: relative;
+  grid-row: 1 / 3;
+}
+
+.profilPic {
+  width: min-content;
+  height: min-content;
+  border-radius: 50%;
+}
+
+.verifiedIcon {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(111, 111, 202);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+}
+
+.counter {
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+.favStar {
+  grid-row: 1;
+  grid-column: 4;
+  align-self: center;
+  justify-self: center;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.favStar.filled path {
+  fill: #ffd700; /* Goldfarbe für gefüllten Stern */
+}
+
+.instagramLink {
+  grid-column: 4;
+  grid-row: 2;
+
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  align-self: center;
+  justify-self: center;
+}
+
+.WebLink {
+  grid-column: 4;
+  grid-row: 3;
+
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  align-self: center;
+  justify-self: center;
+}
+
+.userName {
+  grid-row: 3;
+  grid-column: 1;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.beschrieb {
+  grid-row: 3;
+  grid-column: 2 / 4;
+}
+
+.counterSpan {
+  grid-row: 2;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.mapContainer {
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+
+  top: 0;
+}

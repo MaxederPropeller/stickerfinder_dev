@@ -1,0 +1,172 @@
+.navbar {
+  background: linear-gradient(
+    to right,
+    var(--primary-foreground),
+    var(--accent-foreground) 70%,
+    var(--secondary)
+  );
+
+  border-radius: var(--radius);
+  padding: 15px;
+  width: 80%;
+  margin: 20px auto;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: center;
+  color: var(--secondary-foreground);
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-flyout {
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 10;
+}
+
+.Logo {
+  color: var(--text-hun-white);
+}
+
+.mobilNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--primary-foreground);
+}
+
+.Searchbar {
+  position: relative;
+  width: 90%;
+  height: 70%;
+
+  cursor: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Searchbar input[type="text"] {
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-hun-black);
+
+  font-weight: 500;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 90%;
+  border-radius: var(--radius);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: text;
+  transition: 0.3s;
+  outline: none;
+}
+
+/* Menüknopf-Stil */
+
+.menuButton {
+  background: transparent;
+  color: var(--primary-menu);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: fit-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ClassLink {
+  text-decoration: none;
+  color: var(--secondary-foreground);
+  font-weight: 500;
+}
+
+.ClassLink2 {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+  font-size: larger;
+  margin: 5px;
+}
+
+.UserNameMenu {
+  font-weight: 800;
+  font-size: larger;
+  margin: 5px;
+}
+
+.RoleNameMenu {
+  font-weight: 400;
+  font-size: large;
+  margin: 5px;
+}
+.SeperatorLine {
+  border-bottom: 1px solid var(--secondary-foreground);
+  margin: 15px;
+}
+
+@media screen and (max-width: 760px) {
+  .navbar {
+    background: linear-gradient(
+      to right,
+      var(--primary-foreground),
+      var(--accent-foreground) 70%,
+      var(--secondary)
+    );
+
+    border-radius: var(--radius);
+    padding: 15px;
+    width: 80%;
+    margin: 20px auto;
+    height: 50px;
+    display: flex;
+    position: absolute;
+    top: 0;
+
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: center;
+    color: var(--secondary-foreground);
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobilNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navbar h1 {
+    display: none; /* Verbirgt h1 */
+  }
+  .Searchbar {
+    width: 90%; /* Suchleiste nimmt fast die ganze Breite ein */
+  }
+  /* Suchleisten-Stil */
+  .Searchbar input[type="text"] {
+    /* ... Ihre vorhandenen Stile ... */
+    padding-right: 40px; /* Raum für die Lupe */
+    padding-left: 10px; /* Ein bisschen Abstand auf der linken Seite */
+  }
+
+  /* Menübutton-Stil */
+  .menuButton {
+    background: transparent;
+    color: var(--primary-menu);
+    border: none;
+    font-size: 1.5rem; /* Größere Ikone */
+    cursor: pointer; /* Cursor-Stil */
+    width: fit-content;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
