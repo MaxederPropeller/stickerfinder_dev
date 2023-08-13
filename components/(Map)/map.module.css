@@ -1,67 +1,103 @@
-.mapContainer {
-  position: relative;
-  height: 100%;
+.markerDiv {
   width: 100%;
-}
-
-.popupSlider {
-  position: fixed;
+  height: 66vh;
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 80px;
   overflow: hidden;
-  background-color: #f9f9f9;
-}
-
-.popup {
+  transition: opacity 0.3s, transform 0.3s;
+  animation: slideInFromBottom 0.3s ease-in-out;
+  opacity: 1;
+  z-index: 9;
   display: flex;
-  transition: transform 0.5s ease;
+  flex-direction: column;
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
-.popupItem {
-  flex: 0 0 100%;
-  padding: 15px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.popupTitle,
-.popupDescription,
-.popupAuthor {
-  margin: 10px 0;
-}
-
-.popupImage {
-  max-width: 200px;
-  max-height: 200px;
-  object-fit: cover;
-}
-
-.goToButton,
-.favButton {
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-}
-
-.prevButton,
-.nextButton {
+.Image img {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+  z-index: 1;
 }
 
-.prevButton {
-  left: 10px;
+.HeaderDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
 }
-.nextButton {
-  right: 10px;
+
+.HeaderInfoBox {
+  position: relative;
+  left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.coordinatesBox {
+  display: flex;
+  flex-direction: column;
+}
+.coordinadtesBoxInfo,
+.coordinatesBoxAdressBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.coordinadtesBoxInfo p,
+.coordinatesBoxAdressBox p {
+  margin: 0;
+  margin-right: 5px;
+}
+
+.PopupTitel {
+  position: absolute;
+  bottom: -200px;
+  font-weight: bold;
+  margin-left: 20px;
+  z-index: 100;
+}
+
+.BodyDiv {
+  padding: 20px;
+  margin-top: 50%; /* Positionieren unter dem Header */
+  z-index: 100;
+  color: black;
+  position: absolute;
+  top: 120px;
+}
+
+.FooterDiv {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.ChipBox {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
 }

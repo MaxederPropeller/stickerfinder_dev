@@ -15,20 +15,13 @@
   z-index: 10;
   position: absolute;
   bottom: 0;
-  margin-bottom: 30px;
+  margin-bottom: 66px;
   width: 80%;
   display: flex;
   justify-content: flex-end;
 }
 
 .AddButton {
-  background: linear-gradient(
-    to right,
-    var(--primary),
-    var(--accent-foreground) 70%,
-    var(--secondary)
-  );
-  color: var(--secondary-foreground);
   padding: 10px 20px;
 
   border: none;
@@ -41,10 +34,25 @@
 }
 
 .AddButton:hover {
-  background: linear-gradient(
-    to right,
-    var(--secondary),
-    var(--accent-foreground) 70%,
-    var(--primary)
-  );
+  animation: buttonClick 0.5s;
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Add Screen */
+
+.Fullscreen {
+  height: 100vh;
+  position: absolute;
+  top: 0;
 }

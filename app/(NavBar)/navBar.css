@@ -1,11 +1,12 @@
 .navbar {
-  background: linear-gradient(
+  /*   background: linear-gradient(
     to right,
     var(--primary-foreground),
     var(--accent-foreground) 70%,
     var(--secondary)
   );
 
+ */
   border-radius: var(--radius);
   padding: 15px;
   width: 80%;
@@ -14,7 +15,7 @@
   display: flex;
   position: absolute;
   top: 0;
-  z-index: 100;
+  z-index: 10;
   align-items: center;
   justify-content: space-between;
   justify-self: center;
@@ -112,12 +113,12 @@
 
 @media screen and (max-width: 760px) {
   .navbar {
-    background: linear-gradient(
+    /* background: linear-gradient(
       to right,
       var(--primary-foreground),
       var(--accent-foreground) 70%,
       var(--secondary)
-    );
+    ); */
 
     border-radius: var(--radius);
     padding: 15px;
@@ -160,7 +161,7 @@
   /* Menübutton-Stil */
   .menuButton {
     background: transparent;
-    color: var(--primary-menu);
+    color: #131313;
     border: none;
     font-size: 1.5rem; /* Größere Ikone */
     cursor: pointer; /* Cursor-Stil */
