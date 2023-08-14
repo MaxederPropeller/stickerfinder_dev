@@ -91,22 +91,30 @@ hr {
 }
 
 .DialogIcon.bronze {
-  border: 5px solid #cd7f32;
+  border-left: 10px solid #cd7f32;
+  border-top: 5px solid #cd7f32;
+  border-bottom: 5px solid #cd7f32;
   border-radius: 50%;
 }
 
 .DialogIcon.silver {
-  border: 5px solid #c0c0c0;
+  border-left: 10px solid #c0c0c0;
+  border-top: 5px solid #c0c0c0;
+  border-bottom: 5px solid #c0c0c0;
   border-radius: 50%;
 }
 
 .DialogIcon.gold {
-  border: 5px solid #ffd700;
+  border-left: 10px solid #ffd700;
+  border-top: 5px solid #ffd700;
+  border-bottom: 5px solid #ffd700;
   border-radius: 50%;
 }
 
 .DialogIcon.platinum {
-  border: 5px solid #e5e4e2;
+  border-left: 10px solid #e5e4e2;
+  border-top: 5px solid #e5e4e2;
+  border-bottom: 5px solid #e5e4e2;
   border-radius: 50%;
 }
 

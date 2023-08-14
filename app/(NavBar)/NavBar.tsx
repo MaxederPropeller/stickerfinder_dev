@@ -28,6 +28,10 @@ const NavBar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   const handleClickOutside = (event: any) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsOpen(false);
@@ -117,20 +121,24 @@ const NavBar: React.FC = () => {
             <li style={{ display: "flex", alignItems: "center" }}>
               <AccountCircleIcon />
 
-              <Link className="ClassLink2" href="/profile">
+              <Link className="ClassLink2" href="/profile" onClick={closeMenu}>
                 Profile
               </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>
               <TravelExploreIcon />
 
-              <Link className="ClassLink2" href="/">
+              <Link className="ClassLink2" href="/" onClick={closeMenu}>
                 Home
               </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>
               <FavoriteIcon />
-              <Link className="ClassLink2" href="/favorites">
+              <Link
+                className="ClassLink2"
+                href="/favorites"
+                onClick={closeMenu}
+              >
                 Favorites
               </Link>
             </li>
@@ -147,14 +155,14 @@ const NavBar: React.FC = () => {
             <li style={{ display: "flex", alignItems: "center" }}>
               <InfoIcon />
 
-              <Link className="ClassLink2" href="/about">
+              <Link className="ClassLink2" href="/about" onClick={closeMenu}>
                 About
               </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>
               <SettingsIcon />
 
-              <Link className="ClassLink2" href="/settings">
+              <Link className="ClassLink2" href="/settings" onClick={closeMenu}>
                 Settings
               </Link>
             </li>

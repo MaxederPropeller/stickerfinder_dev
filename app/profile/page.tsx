@@ -38,12 +38,7 @@ export default function Profile({
         </div>
         <div className={styles.counter}>{counter1}</div>
         <div className={styles.counter}>
-          <button
-            onClick={() => window.open(trophaenLink, "_blank")}
-            rel="noreferrer"
-          >
-            {counter2}
-          </button>
+          <Link href={trophaenLink}>{counter2}</Link>{" "}
         </div>
 
         <div className={styles.favStar}>

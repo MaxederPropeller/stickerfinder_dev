@@ -43,6 +43,21 @@ export default function Trophaen({
     }
   };
 
+  const getDescriptionByLevel = (level, baseDescription) => {
+    switch (level) {
+      case 1:
+        return baseDescription + " (Bronze Level)";
+      case 2:
+        return baseDescription + " (Silber Level)";
+      case 3:
+        return baseDescription + " (Gold Level)";
+      case 4:
+        return baseDescription + " (Platin Level)";
+      default:
+        return baseDescription; // Grundbeschreibung für Level 0
+    }
+  };
+
   return (
     <div className="trophaenPage">
       <div className="trophaenPage__headerBox">
@@ -75,10 +90,10 @@ export default function Trophaen({
         className="Dialog"
       >
         <IconButton
-          edge="end"
           color="inherit"
           onClick={handleClose}
           aria-label="close"
+          style={{ display: "flex", justifyContent: "flex-start" }}
         >
           <CloseIcon />
         </IconButton>
@@ -92,7 +107,12 @@ export default function Trophaen({
           {selectedTrophy?.title}
         </DialogTitle>
         <DialogContent>
-          <p>{selectedTrophy?.description}</p>
+          <p>
+            {getDescriptionByLevel(
+              selectedTrophy?.level,
+              selectedTrophy?.description
+            )}
+          </p>
           <div className="progressBar">
             {[1, 2, 3, 4].map((level) => (
               <div
