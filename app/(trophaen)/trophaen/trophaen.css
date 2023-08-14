@@ -1,0 +1,136 @@
+.trophaenPage__headerBox {
+  text-align: center;
+  padding: 20px;
+}
+
+.trophaenPage__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.trophaenPage__p {
+  color: #666;
+}
+
+.trophaenPage__sectionBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.trophaenPage__sectionBox_single {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.trophaenPage__sectionBox_single svg {
+  width: 60px;
+  height: 60px;
+  margin: 10px 0;
+}
+
+.trophaenPage__sectionBox_single .bronze {
+  border: 5px solid #cd7f32;
+  border-radius: 50%;
+}
+
+.trophaenPage__sectionBox_single .silver {
+  border: 5px solid #c0c0c0;
+  border-radius: 50%;
+}
+
+.trophaenPage__sectionBox_single .gold {
+  border: 5px solid #ffd700;
+  border-radius: 50%;
+}
+
+.trophaenPage__sectionBox_single .platinum {
+  border: 5px solid #e5e4e2;
+  border-radius: 50%;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 20px 0;
+}
+
+/* Dialog styles */
+
+.MuiDialog-paper {
+  overflow: visible !important; /* Stellt sicher, dass das Icon nicht abgeschnitten wird */
+}
+.Dialog {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  overflow: visible;
+}
+
+.DialogTitle {
+  position: relative;
+  padding-left: 70px; /* Gibt Platz für das Icon */
+}
+
+.DialogIcon {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: white; /* Hintergrundfarbe, um das Icon vom Dialog abzuheben */
+  z-index: 1; /* Stellt sicher, dass das Icon über dem Dialog liegt */
+  margin-right: 1rem;
+}
+
+.DialogIcon.bronze {
+  border: 5px solid #cd7f32;
+  border-radius: 50%;
+}
+
+.DialogIcon.silver {
+  border: 5px solid #c0c0c0;
+  border-radius: 50%;
+}
+
+.DialogIcon.gold {
+  border: 5px solid #ffd700;
+  border-radius: 50%;
+}
+
+.DialogIcon.platinum {
+  border: 5px solid #e5e4e2;
+  border-radius: 50%;
+}
+
+.DialogContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.progressBar__dot {
+  width: 40px;
+  height: 15px;
+  background-color: #ccc;
+  border-radius: 25%;
+  margin-right: 5px;
+}
+
+.progressBar__dot.active {
+  background-color: rgb(39, 156, 47);
+}

@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   justify-self: center;
-  color: var(--secondary-foreground);
+  color: var(--text-hun-black);
   font-weight: 500;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -30,7 +30,7 @@
 }
 
 .Logo {
-  color: var(--text-hun-white);
+  color: var(--text-hun-black);
 }
 
 .mobilNav {
@@ -71,7 +71,7 @@
 
 .menuButton {
   background: transparent;
-  color: var(--primary-menu);
+  color: var(--text-hun-black);
   border: none;
   font-size: 1.5rem;
   cursor: pointer;

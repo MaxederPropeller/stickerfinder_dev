@@ -24,6 +24,7 @@ export default function Profile({
   const counter1 = 123;
   const counter2 = 1;
   const instagramLink = "https://www.instagram.com/kapkan.ch/";
+  const trophaenLink = "http://www.localhost:3000/trophaen";
   const WebLink = "https://www.kapkan.ch/";
   const userName = "John Doe";
   const beschrieb = "Meine Bio steht hier";
@@ -36,7 +37,15 @@ export default function Profile({
           <div className={styles.verifiedIcon}></div>
         </div>
         <div className={styles.counter}>{counter1}</div>
-        <div className={styles.counter}>{counter2}</div>
+        <div className={styles.counter}>
+          <button
+            onClick={() => window.open(trophaenLink, "_blank")}
+            rel="noreferrer"
+          >
+            {counter2}
+          </button>
+        </div>
+
         <div className={styles.favStar}>
           <StarBorderIcon />
         </div>
@@ -59,25 +68,10 @@ export default function Profile({
         </Link>
         <div className={styles.userName}>{userName}</div>
         <span className={styles.counterSpan}>gefunden</span>
-        <span className={styles.counterSpan}>Tropphäen</span>
+        <span className={styles.counterSpan}>Trophäen</span>
         <div className={styles.beschrieb}>{beschrieb}</div>
       </div>
       <div className={styles.mapContainer}>
-        {/*         <span
-          className={styles.mapTitle}
-          style={{
-            height: "10%",
-            width: "100%",
-            zIndex: 2,
-
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-          }}
-        >
-          {userName} Karte
-        </span> */}
         <MapContainer
           center={[51.505, -0.09]}
           zoom={13}
