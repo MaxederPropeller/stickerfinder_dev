@@ -3,44 +3,88 @@
     {
       "id": 1,
       "title": "Erster Schritt",
-      "description": "Für den ersten hochgeladenen Marken-Sticker.",
       "icon": "icon1.png",
-      "level": 0
+      "levels": [
+        {
+          "level": 0,
+          "description": "Für den ersten hochgeladenen Marken-Sticker."
+        },
+        {
+          "level": 1,
+          "description": "Für 10 hochgeladene Marken-Sticker."
+        },
+        {
+          "level": 2,
+          "description": "Für 100 hochgeladene Marken-Sticker."
+        },
+        {
+          "level": 3,
+          "description": "Für 1000 hochgeladene Marken-Sticker."
+        },
+        {
+          "level": 4,
+          "description": "Für 10000 hochgeladene Marken-Sticker."
+        }
+      ]
     },
     {
       "id": 2,
       "title": "Marken-Meister",
-      "description": "Für 100 hochgeladene Marken-Sticker.",
       "icon": "icon2.png",
-      "level": 2
+      "levels": [
+        {
+          "level": 0,
+          "description": "Einsteiger."
+        },
+        {
+          "level": 2,
+          "description": "Für 100 hochgeladene Marken-Sticker."
+        }
+      ]
     },
     {
       "id": 3,
       "title": "Marken-Legende",
-      "description": "Für 1000 hochgeladene Marken-Sticker.",
       "icon": "icon3.png",
-      "level": 0
+      "levels": [
+        {
+          "level": 0,
+          "description": "Für 1000 hochgeladene Marken-Sticker."
+        }
+      ]
     },
     {
       "id": 4,
       "title": "Lieblingsmarke",
-      "description": "Für 50 hochgeladene Sticker derselben Marke.",
       "icon": "icon4.png",
-      "level": 3
+      "levels": [
+        {
+          "level": 3,
+          "description": "Für 50 hochgeladene Sticker derselben Marke."
+        }
+      ]
     },
     {
       "id": 5,
       "title": "Vielfältiger Sammler",
-      "description": "Für das Hochladen von Sticker von 10 verschiedenen Marken.",
       "icon": "icon5.png",
-      "level": 1
+      "levels": [
+        {
+          "level": 1,
+          "description": "Für das Hochladen von Sticker von 10 verschiedenen Marken."
+        }
+      ]
     },
     {
       "id": 6,
       "title": "Premium-Pionier",
-      "description": "Für das erste Premium-Abonnement.",
       "icon": "icon6.png",
-      "level": 2
+      "levels": [
+        {
+          "level": 2,
+          "description": "Für das erste Premium-Abonnement."
+        }
+      ]
     }
   ]
 }

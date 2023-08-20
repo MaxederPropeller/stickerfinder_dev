@@ -1,19 +1,13 @@
 "use client";
-
-import Link from "next/link";
-
+import React, { useState } from "react";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import trophiesData from "./trophaen.json";
 import "./trophaen.css";
-
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
-import "leaflet/dist/leaflet.css";
-import React, { useState } from "react";
 
 export default function Trophaen({
   params,
@@ -23,12 +17,14 @@ export default function Trophaen({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const [selectedTrophy, setSelectedTrophy] = useState(null);
+  const [selectedLevel, setSelectedLevel] = useState(null);
 
   const handleClose = () => {
     setSelectedTrophy(null);
+    setSelectedLevel(null);
   };
 
-  const getBorderClass = (level) => {
+  const getBorderClass = (level: number) => {
     switch (level) {
       case 1:
         return "bronze";
@@ -40,21 +36,6 @@ export default function Trophaen({
         return "platinum";
       default:
         return "";
-    }
-  };
-
-  const getDescriptionByLevel = (level, baseDescription) => {
-    switch (level) {
-      case 1:
-        return baseDescription + " (Bronze Level)";
-      case 2:
-        return baseDescription + " (Silber Level)";
-      case 3:
-        return baseDescription + " (Gold Level)";
-      case 4:
-        return baseDescription + " (Platin Level)";
-      default:
-        return baseDescription; // Grundbeschreibung für Level 0
     }
   };
 
@@ -71,16 +52,21 @@ export default function Trophaen({
       </div>
 
       <div className="trophaenPage__sectionBox">
-        {trophiesData.trophies.map((trophy, index) => (
-          <div
-            key={index}
-            className="trophaenPage__sectionBox_single"
-            onClick={() => setSelectedTrophy(trophy)}
-          >
-            <TravelExploreIcon className={getBorderClass(trophy.level)} />
-            <span className="trophaenPage__sectionBox">{trophy.title}</span>
-          </div>
-        ))}
+        {trophiesData.trophies.map((trophy) =>
+          trophy.levels.map((level, index) => (
+            <div
+              key={index}
+              className="trophaenPage__sectionBox_single"
+              onClick={() => {
+                setSelectedTrophy(trophy);
+                setSelectedLevel(level);
+              }}
+            >
+              <TravelExploreIcon className={getBorderClass(level.level)} />
+              <span className="trophaenPage__sectionBox">{trophy.title}</span>
+            </div>
+          ))
+        )}
 
         <hr />
       </div>
@@ -100,25 +86,19 @@ export default function Trophaen({
         <DialogTitle>
           <TravelExploreIcon
             className={`DialogIcon ${
-              selectedTrophy ? getBorderClass(selectedTrophy.level) : ""
+              selectedLevel ? getBorderClass(selectedLevel.level) : ""
             }`}
           />
-
           {selectedTrophy?.title}
         </DialogTitle>
         <DialogContent>
-          <p>
-            {getDescriptionByLevel(
-              selectedTrophy?.level,
-              selectedTrophy?.description
-            )}
-          </p>
+          <p>{selectedLevel?.description}</p>
           <div className="progressBar">
             {[1, 2, 3, 4].map((level) => (
               <div
                 key={level}
                 className={`progressBar__dot ${
-                  selectedTrophy?.level >= level ? "active" : ""
+                  selectedLevel?.level >= level ? "active" : ""
                 }`}
               ></div>
             ))}
