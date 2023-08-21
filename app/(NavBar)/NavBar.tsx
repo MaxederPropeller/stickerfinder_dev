@@ -11,6 +11,7 @@ import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import SettingsIcon from "@mui/icons-material/Settings";
 import InfoIcon from "@mui/icons-material/Info";
+import BlurCircular from "@mui/icons-material/BlurCircular";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -130,6 +131,17 @@ const NavBar: React.FC = () => {
 
               <Link className="ClassLink2" href="/" onClick={closeMenu}>
                 Home
+              </Link>
+            </li>
+            <li style={{ display: "flex", alignItems: "center" }}>
+              <BlurCircular />
+
+              <Link
+                className="ClassLink2"
+                href="/stickerid"
+                onClick={closeMenu}
+              >
+                Mein Sticker
               </Link>
             </li>
             <li style={{ display: "flex", alignItems: "center" }}>

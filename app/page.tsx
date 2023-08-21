@@ -14,6 +14,7 @@ export default function Home() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { setNavbarVisible } = useContext(NavbarContext);
+  const [capturedImage, setCapturedImage] = useState(null);
 
   const handleMarkerClick = (marker) => {
     setSelectedMarker(marker);
@@ -24,7 +25,7 @@ export default function Home() {
   };
 
   const handleFabClick = async () => {
-    setNavbarVisible(false); // Navbar verstecken
+    setNavbarVisible(false);
     setIsOn(true);
     setDescriptionMode(false);
 
@@ -46,15 +47,20 @@ export default function Home() {
     canvas.height = videoRef.current.videoHeight;
     const ctx = canvas.getContext("2d");
     ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-    const image = canvas.toDataURL("image/png");
 
-    if (descriptionMode) {
-      console.log("use client", { image, description });
-      setIsOn(false);
-      setNavbarVisible(true); // Navbar wieder anzeigen
-    } else {
-      setDescriptionMode(true); // Wechsel zum Beschreibungseingabemodus
-    }
+    // Erstellen Sie einen Blob anstelle einer Data-URL
+    canvas.toBlob((blob) => {
+      const image = URL.createObjectURL(blob); // Erzeugt eine URL für den Blob
+      setCapturedImage(image);
+
+      if (descriptionMode) {
+        console.log("use client", { image, description });
+        setIsOn(false);
+        setNavbarVisible(true); // Navbar wieder anzeigen
+      } else {
+        setDescriptionMode(true); // Wechsel zum Beschreibungseingabemodus
+      }
+    }, "image/jpeg"); // Hier können Sie das gewünschte Format angeben
   };
 
   return (
@@ -95,6 +101,7 @@ export default function Home() {
           <CameraOverlay
             takePicture={takePicture}
             descriptionMode={descriptionMode}
+            capturedImage={capturedImage}
           />
         </div>
       )}

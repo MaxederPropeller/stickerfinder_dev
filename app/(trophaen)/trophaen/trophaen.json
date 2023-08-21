@@ -7,23 +7,28 @@
       "levels": [
         {
           "level": 0,
-          "description": "Für den ersten hochgeladenen Marken-Sticker."
+          "description": "Für den ersten hochgeladenen Marken-Sticker.",
+          "active": false
         },
         {
           "level": 1,
-          "description": "Für 10 hochgeladene Marken-Sticker."
+          "description": "Für 10 hochgeladene Marken-Sticker.",
+          "active": false
         },
         {
           "level": 2,
-          "description": "Für 100 hochgeladene Marken-Sticker."
+          "description": "Für 100 hochgeladene Marken-Sticker.",
+          "active": true
         },
         {
           "level": 3,
-          "description": "Für 1000 hochgeladene Marken-Sticker."
+          "description": "Für 1000 hochgeladene Marken-Sticker.",
+          "active": false
         },
         {
           "level": 4,
-          "description": "Für 10000 hochgeladene Marken-Sticker."
+          "description": "Für 10000 hochgeladene Marken-Sticker.",
+          "active": false
         }
       ]
     },
@@ -34,11 +39,13 @@
       "levels": [
         {
           "level": 0,
-          "description": "Einsteiger."
+          "description": "Einsteiger.",
+          "active": false
         },
         {
           "level": 2,
-          "description": "Für 100 hochgeladene Marken-Sticker."
+          "description": "Für 100 hochgeladene Marken-Sticker.",
+          "active": true
         }
       ]
     },
@@ -49,7 +56,8 @@
       "levels": [
         {
           "level": 0,
-          "description": "Für 1000 hochgeladene Marken-Sticker."
+          "description": "Für 1000 hochgeladene Marken-Sticker.",
+          "active": true
         }
       ]
     },
@@ -60,7 +68,8 @@
       "levels": [
         {
           "level": 3,
-          "description": "Für 50 hochgeladene Sticker derselben Marke."
+          "description": "Für 50 hochgeladene Sticker derselben Marke.",
+          "active": true
         }
       ]
     },
@@ -71,7 +80,8 @@
       "levels": [
         {
           "level": 1,
-          "description": "Für das Hochladen von Sticker von 10 verschiedenen Marken."
+          "description": "Für das Hochladen von Sticker von 10 verschiedenen Marken.",
+          "active": true
         }
       ]
     },
@@ -82,7 +92,8 @@
       "levels": [
         {
           "level": 2,
-          "description": "Für das erste Premium-Abonnement."
+          "description": "Für das erste Premium-Abonnement.",
+          "active": true
         }
       ]
     }

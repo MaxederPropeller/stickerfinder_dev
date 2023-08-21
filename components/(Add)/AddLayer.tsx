@@ -4,7 +4,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn"; // Importiere das L
 import SendIcon from "@mui/icons-material/Send"; // Importiere das Send Icon
 import "./AddLayer.css"; // Importiere das CSS für das Overlay
 
-function CameraOverlay({ takePicture, descriptionMode }) {
+function CameraOverlay({ takePicture, descriptionMode, capturedImage }) {
   const [location, setLocation] = useState(null);
   const [address, setAddress] = useState({
     tourism: "",
@@ -12,11 +12,6 @@ function CameraOverlay({ takePicture, descriptionMode }) {
     country: "",
   });
   const [description, setDescription] = useState("");
-  const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
-
-  useEffect(() => {
-    setIsReadyToSubmit(description.length > 0);
-  }, [description]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -30,8 +25,8 @@ function CameraOverlay({ takePicture, descriptionMode }) {
         .then((response) => {
           if (response.data.address) {
             setAddress({
-              tourism: response.data.display_name.split(",")[0],
-              city: response.data.display_name.split(",")[1],
+              tourism: response.data.display_name.split(",")[1],
+              city: response.data.display_name.split(",")[2],
               country: response.data.address.country,
             });
           }
@@ -44,8 +39,19 @@ function CameraOverlay({ takePicture, descriptionMode }) {
     takePicture(description);
   };
 
+  const handleTakeSubmit = () => {
+    // hier muss die submit logig in eine Firebase Db hinterlegt werden.
+    // danach muss der canvas video modus wieder geschlossen werden, da sonst weiter im hintergrund die kamera läuft.
+    // der SubmitButton bekommt diese const als on Click event.
+  };
+
   return (
-    <div className="Overlay">
+    <div
+      className="Overlay"
+      style={
+        descriptionMode ? { backgroundImage: `url(${capturedImage})` } : {}
+      }
+    >
       <button
         className="closeButton"
         onClick={descriptionMode ? handleTakePicture : null}
@@ -67,8 +73,8 @@ function CameraOverlay({ takePicture, descriptionMode }) {
                 </span>
                 <div className="addressContainer">
                   <div>
-                    <span>{address.city}, </span> {/* Road */}
-                    <span>{address.country}</span> {/* City */}
+                    <span>{address.city}, </span>
+                    <span>{address.country}</span>
                   </div>
                 </div>
               </div>
@@ -86,8 +92,8 @@ function CameraOverlay({ takePicture, descriptionMode }) {
                 </span>
                 <div className="addressContainer">
                   <div>
-                    <span>{address.city}, </span> {/* Road */}
-                    <span>{address.country}</span> {/* City */}
+                    <span>{address.city}, </span>
+                    <span>{address.country}</span>
                   </div>
                 </div>
               </div>
@@ -97,17 +103,14 @@ function CameraOverlay({ takePicture, descriptionMode }) {
           <div className="descriptionContainer">
             <span className="AddTitle">{address.tourism}</span>{" "}
             <textarea
-              className={`descriptionTextarea ${
-                isReadyToSubmit && "readyToSubmit"
-              }`}
+              className="descriptionTextarea"
               placeholder="Beschreibung..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             <button
-              className="captureButton"
+              className="caputreButton submit"
               onClick={handleTakePicture}
-              disabled={!isReadyToSubmit}
             >
               <SendIcon style={{ fill: "white" }} />
             </button>

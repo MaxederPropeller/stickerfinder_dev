@@ -53,19 +53,21 @@ export default function Trophaen({
 
       <div className="trophaenPage__sectionBox">
         {trophiesData.trophies.map((trophy) =>
-          trophy.levels.map((level, index) => (
-            <div
-              key={index}
-              className="trophaenPage__sectionBox_single"
-              onClick={() => {
-                setSelectedTrophy(trophy);
-                setSelectedLevel(level);
-              }}
-            >
-              <TravelExploreIcon className={getBorderClass(level.level)} />
-              <span className="trophaenPage__sectionBox">{trophy.title}</span>
-            </div>
-          ))
+          trophy.levels
+            .filter((level) => level.active) // Filtert die Levels auf diejenigen, die "active" sind
+            .map((level, index) => (
+              <div
+                key={index}
+                className="trophaenPage__sectionBox_single"
+                onClick={() => {
+                  setSelectedTrophy(trophy);
+                  setSelectedLevel(level);
+                }}
+              >
+                <TravelExploreIcon className={getBorderClass(level.level)} />
+                <span className="trophaenPage__sectionBox">{trophy.title}</span>
+              </div>
+            ))
         )}
 
         <hr />
